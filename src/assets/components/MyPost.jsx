@@ -21,6 +21,13 @@ const MyPost = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
+
+    if (form.pubblic) {
+      alert("Il post è stato inviato ed è con privacy pubblic");
+    } else {
+      alert("Il post è stato inviato ed è con privacy private");
+    }
+
     axios
       .post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", form)
       .then((res) =>

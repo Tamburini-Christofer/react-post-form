@@ -5,35 +5,42 @@
 }
 
 body{
+    color: white;
+    background-color: black;
     font-family: "Playfair Display", Arial, Helvetica, sans-serif;
 }
 
 .containerheader{
-    color: white;
     text-align: center;
-    padding: 80px 0;
-    background-color: azure;
+    padding: 30px 0;
 }
 
 h1{
-    font-size: 40px;
+  font-size: 40px;
+  font-weight: 500;
+  color: #ffffff;
 }
 
 .postContainer{
-    border: 10px solid rgb(255, 255, 255);
-    padding: 40px;
+    border: 1px solid rgb(255, 255, 255);
+    padding: 20px;
+    width: 90%;
+    margin: 0 auto;
 }
 
 textarea,
 input{
+    color: white;
     padding: 10px;
 }
 
 button{
+    color: white;
     background-color: blue;
     padding: 10px 30px;
     border-radius: 30px;
     font-size: 14px;
+    margin-top: 10px;
 }
 
 button:hover{
@@ -48,9 +55,15 @@ form{
 }
 
 form div{
-    margin: 20px 0;
+    margin: 10px 0;
+}
+
+input,textarea{
+    background-color: rgb(48, 49, 48);
 }
 
 .inputCheck{
-    margin-left: 10px ;
+    margin-left: 10px;
+    width: 50px;
 }
+

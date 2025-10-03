@@ -1,85 +1,76 @@
 import { useState } from "react";
 
+
 const MyPost = () => {
-    const [form, setForm] = useState ({
-        author: "",
-        title: "",
-        body: "",
-        pubblic: false
-    });
+  const [form, setForm] = useState({
+    author: "",
+    title: "",
+    body: "",
+    pubblic: false,
+  });
 
-    function handleFormData(e) {
+  function handleFormData(e) {
+    const { name, value } = e.target;
+    setForm((currentFormData) => ({ ...currentFormData, [name]: value }));
+  }
 
-        const { name, value } = e.target;
-        setForm((currentFormData) => ({ ...currentForm, [name]: value }));
-    }
+  function handleCheckbox(e) {
+    const { name, checked } = e.target;
+    setForm((currentFormData) => ({ ...currentFormData, [name]: checked }));
+  }
 
-    const handleChange = (e) => {
-        const { name, title, type} = e.target;
+  function handleSubmit(e) {
+    e.preventDefault();
+    axios
+      .post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", form)
+      .then((res) =>
+        console.log("I tuoi dati sono stati inviati correttamente", res.data)
+      )
+      .catch((error) => console.log(error));
+  }
 
-        if(type === "checkbox") {
-            setData({...form, [name]: checked}
-        } else {
-            setData({...form, [name]: value}
-        }
-    };
-
-   
-
-    function handleSubmit(e) {
-        e.preventDefault();
-        axios.post("https://**67c5b4f3351c081993fb1ab6**.mockapi.io**/api**/posts")
-        .then(res => console.log("I tuoi dati sono stati inviati correttamente", res.data))
-        .catch(error => console.log(error))
-    }
-
-    return(
-        <>
-            <div className="postContainer">
-                <form action="">
-                    <div>
-                      <input
-                            className="formCainter"
-                            placeholder="author"
-                            type="value"
-                            value={form.author}
-                            onChange={handleFormData}
-                            title="author"
-                        />
-                      <input
-                            className="formCainter"
-                            placeholder="title"
-                            type="value"
-                            value={form.title}
-                            onChange={handleFormData}
-                            title="title"
-                        />
-                      <input
-                            className="formCainter"
-                            placeholder="body"
-                            type="text"
-                            value={form.body}
-                            onChange={handleFormData}
-                            title="bodyPost"
-                        />
-                      <input
-                            className="formCainter"
-                            placeholder="pubblic"
-                            type="value"
-                            value={form.pubblic}
-                            onChange={handleFormData}
-                            title="pubblic"
-                        />
-                    </div>
-                
-                </form>
-                
-            </div>
-        
-        
-        
-        
-        
-        </>
-    )
-}
+  return (
+    <>
+      <div className="postContainer">
+        <form onSubmit={handleSubmit}>
+          <div>
+            <input
+              className="formCainter"
+              placeholder="Author"
+              type="text"
+              name="author"
+              value={form.author}
+              onChange={handleFormData}
+            />
+            <input
+              className="formCainter"
+              placeholder="Title"
+              type="text"
+              name="title"
+              value={form.title}
+              onChange={handleFormData}
+            />
+            <input
+              className="formCainter"
+              placeholder="Body"
+              type="text"
+              name="body"
+              value={form.body}
+              onChange={handleFormData}
+            />
+            <label>
+              Pubblico
+              <input
+                type="checkbox"
+                name="pubblic"
+                checked={form.pubblic}
+                onChange={handleCheckbox}
+              />
+            </label>
+          </div>
+          <button type="submit">Invia</button>
+        </form>
+      </div>
+    </>
+  );
+};

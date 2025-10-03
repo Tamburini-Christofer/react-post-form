@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import axios from "axios";
 
 const MyPost = () => {
   const [form, setForm] = useState({
@@ -21,8 +21,7 @@ const MyPost = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios
-      .post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", form)
+    axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", form)
       .then((res) =>
         console.log("I tuoi dati sono stati inviati correttamente", res.data)
       )
@@ -74,3 +73,5 @@ const MyPost = () => {
     </>
   );
 };
+
+export default MyPost;

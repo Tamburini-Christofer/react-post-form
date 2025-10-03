@@ -4,7 +4,7 @@ const MyHeader = () => {
         <>
             <header>
                 <div className="containerheader">
-                    <h1>Crea i tuoi post in un click</h1>
+                    <h1>Invia i tuoi post con un click</h1>
                 </div>
             </header>
         </>

@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Playfair Display", Arial, Helvetica, sans-serif;
+}
+
+.containerheader{
+    color: white;
+    text-align: center;
+    padding: 80px 0;
+    background-color: azure;
+}
+
+h1{
+    font-size: 40px;
+}
+
+.postContainer{
+    border: 10px solid rgb(255, 255, 255);
+    padding: 40px;
+}
+
+textarea,
+input{
+    padding: 10px;
+}
+
+button{
+    background-color: blue;
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-size: 14px;
+}
+
+button:hover{
+    cursor: pointer;
+    background-color: brown;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+form div{
+    margin: 20px 0;
+}
+
+.inputCheck{
+    margin-left: 10px ;
+}

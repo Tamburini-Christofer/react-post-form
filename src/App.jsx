@@ -1,14 +1,15 @@
-import './App.css'
-import MyHeader from "./assets/components/MyHeader"
-import MyPost from "./assets/components/MyPost"
+import "./App.css";
+import MyHeader from "./assets/components/MyHeader";
+import MyPost from "./assets/components/MyPost";
 function App() {
-
   return (
     <>
-      <MyHeader />
-      <MyPost />
+      <div className="containerPrincipal">
+        <MyHeader />
+        <MyPost />
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

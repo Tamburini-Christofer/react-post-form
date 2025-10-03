@@ -21,7 +21,8 @@ const MyPost = () => {
 
   function handleSubmit(e) {
     e.preventDefault();
-    axios.post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", form)
+    axios
+      .post("https://67c5b4f3351c081993fb1ab6.mockapi.io/api/posts", form)
       .then((res) =>
         console.log("I tuoi dati sono stati inviati correttamente", res.data)
       )
@@ -41,6 +42,9 @@ const MyPost = () => {
               value={form.author}
               onChange={handleFormData}
             />
+          </div>
+          <div>
+            {" "}
             <input
               className="formCainter"
               placeholder="Title"
@@ -49,7 +53,12 @@ const MyPost = () => {
               value={form.title}
               onChange={handleFormData}
             />
-            <input
+          </div>
+          <div>
+            {" "}
+            <textarea
+              rows="10"
+              cols="100"
               className="formCainter"
               placeholder="Body"
               type="text"
@@ -57,9 +66,12 @@ const MyPost = () => {
               value={form.body}
               onChange={handleFormData}
             />
+          </div>
+          <div>
             <label>
               Pubblico
               <input
+                className="inputCheck"
                 type="checkbox"
                 name="pubblic"
                 checked={form.pubblic}
